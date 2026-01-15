@@ -1,25 +1,26 @@
-# 🛒 Retail Inventory Intelligence: Power BI & SQL Analytics
+# 🛒 Retail Inventory Intelligence: End-to-End Analytics
 
 ![Power BI](https://img.shields.io/badge/Business%20Intelligence-Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
-![DAX](https://img.shields.io/badge/Language-DAX-00758F?style=for-the-badge&logo=powerbi&logoColor=white)
-![SQL](https://img.shields.io/badge/Data-SQL-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
+![Python](https://img.shields.io/badge/Data%20Gen-Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![MySQL](https://img.shields.io/badge/Storage-MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Finalizado-success?style=for-the-badge)
 
 ## 📋 Descripción Ejecutiva
-Este proyecto consiste en una solución de **Inteligencia de Negocios (BI)** diseñada para optimizar la cadena de suministro de una empresa de Retail.
+Este proyecto es una solución integral de **Inteligencia de Negocios (BI)** para el sector Retail. Simula, procesa y visualiza el inventario de un supermercado para optimizar la cadena de suministro.
 
-El objetivo principal es reducir las pérdidas por "Out-of-Stock" (quiebres de stock) y optimizar la rotación de inventarios mediante un dashboard interactivo que permite a los gerentes de logística tomar decisiones basadas en datos en tiempo real.
+El sistema aborda dos problemas críticos de negocio:
+1.  **Control de Mermas:** Reducción de pérdidas por vencimiento de productos perecederos.
+2.  **Optimización de Stock:** Segmentación de productos (Pareto ABC) para estrategias de venta inteligentes.
 
 ---
 
-## 🏗️ Flujo de Datos (Data Pipeline)
+## 🏗️ Arquitectura del Pipeline (End-to-End)
 
-El proceso sigue el estándar de la industria para BI (ETL + Modelado + Visualización):
+El proyecto no es solo un dashboard; es un flujo de datos completo **ETL (Extract, Transform, Load)**:
 
 ```mermaid
 graph LR
-    A[("Fuente de Datos (SQL/Excel)")] --> B(Power Query ETL)
-    B -- Limpieza & Transformación --> C{Modelo de Datos}
-    C -- Star Schema --> D[Cálculos DAX]
-    D --> E[Dashboard Interactivo]
-    E --> F[Toma de Decisiones]
+    A[("Generador Python (Faker)")] -->|Datos Sintéticos| B(MySQL / Data Warehouse)
+    B -->|SQL Queries| C{Power BI Data Model}
+    C -->|DAX| D[Cálculo de Semáforos]
+    D -->|Visualización| E[Dashboard Gerencial]
